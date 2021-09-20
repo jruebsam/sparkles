@@ -3,6 +3,11 @@
 #include <iostream>
 
 
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+
+
 Window::Window() {
     width = 800;
     height = 600;
@@ -56,6 +61,17 @@ int Window::Initialise() {
     // Setup viewport size
     glViewport(0, 0, bufferWidth, bufferHeight);
     glfwSetWindowUserPointer(mainWindow, this);
+
+
+    const char *glsl_version = "#version 130";
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO &io = ImGui::GetIO();
+
+    ImGui_ImplGlfw_InitForOpenGL(mainWindow, true);
+    ImGui_ImplOpenGL3_Init(glsl_version);
+
+    ImGui::StyleColorsDark();
 }
 
 void Window::createCallbacks() {

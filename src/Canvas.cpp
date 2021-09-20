@@ -3,9 +3,11 @@
 
 #include <iostream>
 
+
 Canvas::Canvas(const int _width, const int _height)
 : width(_width), height(_height)
 {
+
     glGenBuffers(1, &VBO);
     glGenVertexArrays(1, &VAO);
 
@@ -23,9 +25,12 @@ Canvas::Canvas(const int _width, const int _height)
     glEnable( GL_BLEND );
 }
 
-void Canvas::Render(double dt){
+void Canvas::Clear() {
     glClearColor(0.f, 0.f, 0.f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void Canvas::Render(double dt){
 
     agents.Update(dt);
 
@@ -39,6 +44,8 @@ void Canvas::Render(double dt){
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+
+
 }
 
 GLuint Canvas::getTextureID()

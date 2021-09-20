@@ -19,6 +19,8 @@ public:
 
     std::string ReadFile(const char* fileLocation);
 
+    void setUniform(const std::string& name, float* val); 
+
     void UseShader();
     void ClearShader();
     ~Shader();

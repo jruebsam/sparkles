@@ -121,5 +121,7 @@ Shader::~Shader()
     ClearShader();
 }
 
-
-
+void Shader::setUniform(const std::string& name, float* val) {
+    auto uniform_location = glGetUniformLocation(shaderID, name.c_str());
+	glUniform4fv(uniform_location, 1, val);
+}

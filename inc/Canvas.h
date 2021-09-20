@@ -9,12 +9,13 @@ private:
     GLuint VBO = 0, VAO = 0, EBO = 0, texture;
     int width, height;
     int agents_size{};
-    Agents agents{500000};
+    Agents agents{5000};
 
 public:
     Canvas(const int width, const int height);
     ~Canvas();
     void Render(double dt);
+    void Clear();
     GLuint getTextureID();
 };
 

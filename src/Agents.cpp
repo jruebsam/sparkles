@@ -28,7 +28,7 @@ void Agents::Update(double dt) {
         px = agent.x + (float) dt*agent.vx;
         py = agent.y + (float) dt*agent.vy;
 
-        float r2 = agent.x*agent.x + agent.y*agent.y;
+        float r2 = agent.x*agent.x + agent.y*agent.y + 0.000001;
 
         agent.vx -= (float) dt*px*g/r2;
         agent.vy -= (float) dt*py*g/r2;

@@ -17,9 +17,11 @@ add_executable(
     src/Window.cpp
     src/Canvas.cpp
     src/Agents.cpp
+    bindings/imgui_impl_glfw.cpp 
+    bindings/imgui_impl_opengl3.cpp
 )
 
-target_include_directories(spark PUBLIC inc)
+target_include_directories(spark PUBLIC inc bindings)
 target_link_libraries(spark ${CONAN_LIBS})
 
 add_custom_command(
