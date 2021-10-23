@@ -23,6 +23,10 @@ add_executable(
     bindings/imgui_impl_opengl3.cpp
 )
 
+target_compile_definitions(spark
+    PUBLIC IMGUI_IMPL_OPENGL_LOADER_GLAD
+)
+
 target_include_directories(spark PUBLIC inc bindings)
 target_link_libraries(spark ${CONAN_LIBS})
 
